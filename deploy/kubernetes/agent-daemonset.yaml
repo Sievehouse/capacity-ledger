@@ -1,0 +1,88 @@
+# Capacity Ledger agent: one pod per GPU node, read-only towards the host.
+#
+# By default it tails /var/log/kern.log (Ubuntu/Debian with rsyslog), which
+# needs no privileges beyond membership of the "adm" group (gid 4). For hosts
+# without that file, see the /dev/kmsg alternative at the bottom.
+#
+# Signing key: create the secret from a key made with `capledger keygen`:
+#   kubectl -n capledger create secret generic capledger-agent-key \
+#     --from-file=capledger.key.pem=keys/capledger.key.pem
+# One shared key is simplest; per-node keys give a smaller blast radius if a
+# node is compromised (see docs/threat-model.md).
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: capledger
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: capledger-agent
+  namespace: capledger
+  labels:
+    app.kubernetes.io/name: capledger-agent
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: capledger-agent
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: capledger-agent
+    spec:
+      nodeSelector:
+        nvidia.com/gpu.present: "true"   # label set by NVIDIA GPU feature discovery
+      tolerations:
+        - operator: Exists
+      priorityClassName: system-node-critical
+      automountServiceAccountToken: false  # the agent never talks to the Kubernetes API
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65532
+        runAsGroup: 65532
+        supplementalGroups: [4]          # "adm": read access to /var/log/kern.log
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: agent
+          image: ghcr.io/your-org/capacity-ledger-agent:0.1.0   # build with deploy/docker/Dockerfile.agent
+          args:
+            - agent
+            - --node=$(NODE_NAME)
+            - --source=/host/var/log/kern.log
+            - --log=/var/lib/capledger/evidence-$(NODE_NAME).jsonl
+            - --key=/etc/capledger/key/capledger.key.pem
+            # - --expected-gpus=8   # also poll nvidia-smi; needs the NVIDIA container runtime
+          env:
+            - name: NODE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          resources:
+            requests: { cpu: 10m, memory: 32Mi }
+            limits: { cpu: 100m, memory: 64Mi }
+          volumeMounts:
+            - { name: host-log, mountPath: /host/var/log, readOnly: true }
+            - { name: evidence, mountPath: /var/lib/capledger }
+            - { name: key, mountPath: /etc/capledger/key, readOnly: true }
+      volumes:
+        - name: host-log
+          hostPath: { path: /var/log, type: Directory }
+        - name: evidence
+          hostPath: { path: /var/lib/capledger, type: DirectoryOrCreate }
+        - name: key
+          secret:
+            secretName: capledger-agent-key
+            defaultMode: 0440
+# Alternative for hosts without /var/log/kern.log: read /dev/kmsg directly.
+# Container runtimes block host devices for unprivileged containers, so this
+# needs `privileged: true` (as node-problem-detector does). Replace the
+# host-log mount with:
+#   - { name: kmsg, mountPath: /dev/kmsg, readOnly: true }
+#   volumes: - { name: kmsg, hostPath: { path: /dev/kmsg, type: CharDevice } }
+# and pass --source=kmsg.
