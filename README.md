@@ -164,5 +164,3 @@ Next: heartbeat entries and gap detection, a tenant-side probe, an AMD (amd-smi/
 ## Contributing, security and licence
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md). Licensed under the [Apache License 2.0](LICENSE).
-
-If you renamed the repository, update the Go module path with `./scripts/rename-module.sh github.com/<you>/<repo>`.
