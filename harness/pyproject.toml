@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "capledger-harness"
+version = "0.1.0"
+description = "Acceptance-test planning, result parsing and fault localisation for GPU clusters (Capacity Ledger)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+dependencies = ["PyYAML>=6"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+burnin = ["torch>=2.3"]
+
+[project.scripts]
+capledger-harness = "capledger_harness.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
