@@ -1,0 +1,11 @@
+# Inventory for a small HGX acceptance run. Adjust names, devices and paths.
+cluster: example-hgx-32gpu
+launcher: slurm              # slurm | mpirun | local
+nodes: [gpu-001, gpu-002, gpu-003, gpu-004]
+gpus_per_node: 8
+rdma_devices: [mlx5_0, mlx5_1, mlx5_2, mlx5_3, mlx5_4, mlx5_5, mlx5_6, mlx5_7]
+nccl_tests_dir: /opt/nccl-tests/build
+burn_in_minutes: 480         # 8 hours, GPUs and fabric stressed together
+storage_paths: [/mnt/shared/acceptance]
+python: python3
+burnin_script: harness/scripts/burnin.py
