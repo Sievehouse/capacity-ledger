@@ -1,0 +1,6 @@
+2026-10-03T04:11:56+0000 gpu-003 kernel: mlx5_core 0000:1a:00.0: mlx5_port_module_event:1160:(pid 0): Port module event: module 0, Cable plugged
+2026-10-03T04:11:58+0000 gpu-003 kernel: NVRM: Xid (PCI:0000:3b:00): 79, pid=0, GPU has fallen off the bus.
+2026-10-03T04:11:58+0000 gpu-003 kernel: NVRM: GPU 0000:3b:00.0: GPU has fallen off the bus.
+2026-10-03T04:11:59+0000 gpu-003 kernel: NVRM: Xid (PCI:0000:3b:00): 79, pid=0, GPU has fallen off the bus.
+2026-10-03T05:02:10+0000 gpu-003 kernel: NVRM: Xid (PCI:0000:5d:00): 94, pid=48211, name=python3, Contained ECC error.
+2026-10-03T06:15:42+0000 gpu-003 kernel: nvidia-nvswitch2: SXid (PCI:0000:07:00.0): 12028, Non-fatal, Link 30 egress error
