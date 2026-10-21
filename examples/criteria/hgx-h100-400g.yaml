@@ -1,0 +1,8 @@
+# Illustrative pass floors for HGX H100 nodes with 8 x 400 Gb/s NICs.
+# Calibrate these from your own healthy baselines before using them in a contract.
+nccl_min_busbw_gbps:          # bus bandwidth at the largest message size, by world size in nodes
+  all_reduce: {2: 340, 4: 330, 8: 320, 16: 310}
+  alltoall:   {2: 40, 4: 38, 8: 36, 16: 34}
+require_dcgm_pass: true
+outlier_z: 3.5                # robust z-score threshold for peer comparison
+outlier_rel: 0.05             # and at least 5% worse than the peer median
