@@ -1,0 +1,60 @@
+{
+  "apiVersion": "capacity-ledger/v1alpha1",
+  "kind": "ContractSLA",
+  "metadata": {
+    "id": "example-neocloud--example-lab--gb300-2026",
+    "version": 1,
+    "provider": "Example Neocloud (fictional)",
+    "customer": "Example Lab (fictional)",
+    "description": "Two rack-scale NVL72 racks (18 trays of 4 GPUs each). A rack counts as down while 3 or more of its trays are down. Illustrative terms only."
+  },
+  "cluster": {
+    "gpusPerNode": 4,
+    "nodes": [
+      "rack-a-tray-01", "rack-a-tray-02", "rack-a-tray-03", "rack-a-tray-04", "rack-a-tray-05", "rack-a-tray-06",
+      "rack-a-tray-07", "rack-a-tray-08", "rack-a-tray-09", "rack-a-tray-10", "rack-a-tray-11", "rack-a-tray-12",
+      "rack-a-tray-13", "rack-a-tray-14", "rack-a-tray-15", "rack-a-tray-16", "rack-a-tray-17", "rack-a-tray-18",
+      "rack-b-tray-01", "rack-b-tray-02", "rack-b-tray-03", "rack-b-tray-04", "rack-b-tray-05", "rack-b-tray-06",
+      "rack-b-tray-07", "rack-b-tray-08", "rack-b-tray-09", "rack-b-tray-10", "rack-b-tray-11", "rack-b-tray-12",
+      "rack-b-tray-13", "rack-b-tray-14", "rack-b-tray-15", "rack-b-tray-16", "rack-b-tray-17", "rack-b-tray-18"
+    ],
+    "racks": [
+      {
+        "name": "rack-a",
+        "nodes": [
+          "rack-a-tray-01", "rack-a-tray-02", "rack-a-tray-03", "rack-a-tray-04", "rack-a-tray-05", "rack-a-tray-06",
+          "rack-a-tray-07", "rack-a-tray-08", "rack-a-tray-09", "rack-a-tray-10", "rack-a-tray-11", "rack-a-tray-12",
+          "rack-a-tray-13", "rack-a-tray-14", "rack-a-tray-15", "rack-a-tray-16", "rack-a-tray-17", "rack-a-tray-18"
+        ]
+      },
+      {
+        "name": "rack-b",
+        "nodes": [
+          "rack-b-tray-01", "rack-b-tray-02", "rack-b-tray-03", "rack-b-tray-04", "rack-b-tray-05", "rack-b-tray-06",
+          "rack-b-tray-07", "rack-b-tray-08", "rack-b-tray-09", "rack-b-tray-10", "rack-b-tray-11", "rack-b-tray-12",
+          "rack-b-tray-13", "rack-b-tray-14", "rack-b-tray-15", "rack-b-tray-16", "rack-b-tray-17", "rack-b-tray-18"
+        ]
+      }
+    ]
+  },
+  "measurement": {
+    "minIncident": "5m",
+    "degradedCountsAsDown": true,
+    "rackRule": { "nodesDownThreshold": 3 }
+  },
+  "exclusions": {
+    "maintenanceNotice": "72h",
+    "maxExcludedPerNode": "8h",
+    "customerCaused": true
+  },
+  "credits": {
+    "monthlyFee": "650000.00",
+    "currency": "USD",
+    "capPercent": 30,
+    "tiers": [
+      { "availabilityBelow": "99.95", "creditPercent": 3 },
+      { "availabilityBelow": "99.5", "creditPercent": 10 },
+      { "availabilityBelow": "99.0", "creditPercent": 25 }
+    ]
+  }
+}
