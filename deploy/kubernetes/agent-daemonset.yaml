@@ -45,7 +45,7 @@ spec:
           type: RuntimeDefault
       containers:
         - name: agent
-          image: ghcr.io/your-org/capacity-ledger-agent:0.1.0   # build with deploy/docker/Dockerfile.agent
+          image: ghcr.io/sievehouse/capacity-ledger-agent:0.1.0   # build with deploy/docker/Dockerfile.agent
           args:
             - agent
             - --node=$(NODE_NAME)
