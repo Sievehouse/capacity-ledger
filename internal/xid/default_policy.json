@@ -1,0 +1,24 @@
+{
+  "version": "starter-2026-10",
+  "note": "Starter mapping from NVIDIA XID codes to SLA actions. Review it against NVIDIA's XID documentation for your driver version and against the contract before using it for SLA decisions. node_down opens an incident that stays open until an up event arrives from a repair or health-check integration.",
+  "xid": {
+    "13": { "action": "app", "summary": "Graphics engine exception; usually caused by the application" },
+    "31": { "action": "app", "summary": "GPU memory page fault; usually caused by the application" },
+    "43": { "action": "app", "summary": "GPU stopped processing; usually caused by the application" },
+    "45": { "action": "app", "summary": "Preemptive cleanup after a process ended" },
+    "48": { "action": "node_down", "summary": "Double-bit ECC error" },
+    "61": { "action": "review", "summary": "Internal micro-controller warning" },
+    "62": { "action": "node_down", "summary": "Internal micro-controller halt" },
+    "63": { "action": "review", "summary": "Row remapping or page retirement recorded; schedule a GPU reset" },
+    "64": { "action": "node_down", "summary": "Row remapping or page retirement failed" },
+    "74": { "action": "node_down", "summary": "NVLink error" },
+    "79": { "action": "node_down", "summary": "GPU has fallen off the bus" },
+    "92": { "action": "review", "summary": "High single-bit ECC error rate" },
+    "94": { "action": "app", "summary": "Contained ECC error; restart the application" },
+    "95": { "action": "node_down", "summary": "Uncontained ECC error" },
+    "119": { "action": "node_down", "summary": "GSP RPC timeout" },
+    "120": { "action": "node_down", "summary": "GSP error" }
+  },
+  "sxid": {},
+  "default": { "action": "review", "summary": "Not in the policy; needs a human decision" }
+}
