@@ -23,3 +23,7 @@ where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[project.urls]
+Homepage = "https://github.com/Sievehouse/capacity-ledger"
+Issues = "https://github.com/Sievehouse/capacity-ledger/issues"
