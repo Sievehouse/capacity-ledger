@@ -1,0 +1,10 @@
+# Synthetic October 2026 events for examples/contracts/nvl72-2-racks.json.
+# Three trays of rack-a overlap between 10:30 and 11:15, which takes the whole rack down for 45 minutes.
+{"id":"r-0001","ts":"2026-10-05T10:00:00Z","node":"rack-a-tray-03","type":"down","cause":"xid:79","source":"capledger-agent"}
+{"id":"r-0002","ts":"2026-10-05T10:15:00Z","node":"rack-a-tray-11","type":"down","cause":"xid:74","source":"capledger-agent"}
+{"id":"r-0003","ts":"2026-10-05T10:30:00Z","node":"rack-a-tray-07","type":"down","cause":"xid:95","source":"capledger-agent"}
+{"id":"r-0004","ts":"2026-10-05T11:15:00Z","node":"rack-a-tray-11","type":"up","source":"provider-health-check"}
+{"id":"r-0005","ts":"2026-10-05T11:45:00Z","node":"rack-a-tray-07","type":"up","source":"provider-health-check"}
+{"id":"r-0006","ts":"2026-10-05T12:00:00Z","node":"rack-a-tray-03","type":"up","source":"provider-health-check"}
+{"id":"r-0007","ts":"2026-10-18T03:00:00Z","node":"rack-b-tray-02","type":"down","cause":"network:frontend","source":"capledger-agent"}
+{"id":"r-0008","ts":"2026-10-18T03:20:00Z","node":"rack-b-tray-02","type":"up","source":"provider-health-check"}
