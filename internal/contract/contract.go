@@ -20,7 +20,7 @@ import (
 	"strings"
 	"time"
 
-	"capledger/internal/canonical"
+	"github.com/Sievehouse/capacity-ledger/internal/canonical"
 )
 
 // APIVersion and Kind identify a contract spec document.

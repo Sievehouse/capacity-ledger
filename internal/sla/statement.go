@@ -7,7 +7,7 @@ import (
 	"os"
 	"strings"
 
-	"capledger/internal/canonical"
+	"github.com/Sievehouse/capacity-ledger/internal/canonical"
 )
 
 // Statement is the output of one SLA computation. It is sealed with a

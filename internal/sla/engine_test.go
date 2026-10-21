@@ -7,8 +7,8 @@ import (
 	"strings"
 	"testing"
 
-	"capledger/internal/contract"
-	"capledger/internal/events"
+	"github.com/Sievehouse/capacity-ledger/internal/contract"
+	"github.com/Sievehouse/capacity-ledger/internal/events"
 )
 
 const oct2026Start, oct2026End = 1790812800, 1793491200 // 2026-10-01T00:00:00Z, 2026-11-01T00:00:00Z

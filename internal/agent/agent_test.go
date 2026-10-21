@@ -9,9 +9,9 @@ import (
 	"testing"
 	"time"
 
-	"capledger/internal/events"
-	"capledger/internal/evidence"
-	"capledger/internal/xid"
+	"github.com/Sievehouse/capacity-ledger/internal/events"
+	"github.com/Sievehouse/capacity-ledger/internal/evidence"
+	"github.com/Sievehouse/capacity-ledger/internal/xid"
 )
 
 func setup(t *testing.T) (*Agent, string, map[string]ed25519.PublicKey) {

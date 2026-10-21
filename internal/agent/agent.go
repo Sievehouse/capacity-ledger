@@ -19,9 +19,9 @@ import (
 	"sync"
 	"time"
 
-	"capledger/internal/events"
-	"capledger/internal/evidence"
-	"capledger/internal/xid"
+	"github.com/Sievehouse/capacity-ledger/internal/events"
+	"github.com/Sievehouse/capacity-ledger/internal/evidence"
+	"github.com/Sievehouse/capacity-ledger/internal/xid"
 )
 
 // Config configures an Agent.

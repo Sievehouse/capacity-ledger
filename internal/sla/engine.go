@@ -25,9 +25,9 @@ import (
 	"sort"
 	"strings"
 
-	"capledger/internal/contract"
-	"capledger/internal/events"
-	"capledger/internal/interval"
+	"github.com/Sievehouse/capacity-ledger/internal/contract"
+	"github.com/Sievehouse/capacity-ledger/internal/events"
+	"github.com/Sievehouse/capacity-ledger/internal/interval"
 )
 
 // EngineVersion is recorded in every statement. Bump it whenever the

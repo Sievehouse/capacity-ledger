@@ -17,7 +17,7 @@ import (
 	"strings"
 	"time"
 
-	"capledger/internal/canonical"
+	"github.com/Sievehouse/capacity-ledger/internal/canonical"
 )
 
 // Type is the kind of availability transition.

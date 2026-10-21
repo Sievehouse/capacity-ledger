@@ -25,7 +25,7 @@ import (
 	"strings"
 	"time"
 
-	"capledger/internal/canonical"
+	"github.com/Sievehouse/capacity-ledger/internal/canonical"
 )
 
 const hashDomain = "capacity-ledger/evidence/v1\n"
