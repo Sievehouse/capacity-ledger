@@ -1,0 +1,43 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  go:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        go: ["1.22.x", "1.24.x"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: ${{ matrix.go }}
+      - name: Format and vet
+        run: make vet
+      - name: Test with the race detector
+        run: go test -race ./...
+      - name: End-to-end demo
+        run: ./scripts/demo.sh
+
+  python:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.10", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install the harness
+        run: pip install -e "harness[dev]"
+      - name: Test
+        run: cd harness && pytest -q
+      - name: Burn-in script compiles
+        run: python -m py_compile harness/scripts/burnin.py
