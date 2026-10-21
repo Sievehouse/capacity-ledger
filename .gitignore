@@ -1,0 +1,20 @@
+# Build output
+/bin/
+*.test
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+
+# Secrets and local runs: never commit signing keys or real customer evidence
+keys/
+*.key.pem
+/evidence*.jsonl
+/statement*.json
+/results*.jsonl
+/plan.json
+/report*.json
+/report*.md
