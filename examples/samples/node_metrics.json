@@ -1,0 +1,19 @@
+{
+  "_comment": "Synthetic per-node results from a burn-in, for the peer-comparison example. gpu-009 is 11% slow on GEMM; gpu-013 is 1% low on memory bandwidth, which is within tolerance.",
+  "gpu-001": {"gemm_bf16_tflops": 721.4, "hbm_copy_gbps": 2861, "nvlink_allreduce_busbw_gbps": 462.1},
+  "gpu-002": {"gemm_bf16_tflops": 718.9, "hbm_copy_gbps": 2858, "nvlink_allreduce_busbw_gbps": 461.7},
+  "gpu-003": {"gemm_bf16_tflops": 723.0, "hbm_copy_gbps": 2864, "nvlink_allreduce_busbw_gbps": 462.9},
+  "gpu-004": {"gemm_bf16_tflops": 720.2, "hbm_copy_gbps": 2860, "nvlink_allreduce_busbw_gbps": 460.8},
+  "gpu-005": {"gemm_bf16_tflops": 719.7, "hbm_copy_gbps": 2857, "nvlink_allreduce_busbw_gbps": 461.5},
+  "gpu-006": {"gemm_bf16_tflops": 722.6, "hbm_copy_gbps": 2863, "nvlink_allreduce_busbw_gbps": 462.4},
+  "gpu-007": {"gemm_bf16_tflops": 717.8, "hbm_copy_gbps": 2859, "nvlink_allreduce_busbw_gbps": 461.0},
+  "gpu-008": {"gemm_bf16_tflops": 720.9, "hbm_copy_gbps": 2862, "nvlink_allreduce_busbw_gbps": 462.2},
+  "gpu-009": {"gemm_bf16_tflops": 641.3, "hbm_copy_gbps": 2860, "nvlink_allreduce_busbw_gbps": 461.9},
+  "gpu-010": {"gemm_bf16_tflops": 721.8, "hbm_copy_gbps": 2861, "nvlink_allreduce_busbw_gbps": 462.6},
+  "gpu-011": {"gemm_bf16_tflops": 719.1, "hbm_copy_gbps": 2858, "nvlink_allreduce_busbw_gbps": 461.3},
+  "gpu-012": {"gemm_bf16_tflops": 722.2, "hbm_copy_gbps": 2865, "nvlink_allreduce_busbw_gbps": 462.8},
+  "gpu-013": {"gemm_bf16_tflops": 720.5, "hbm_copy_gbps": 2832, "nvlink_allreduce_busbw_gbps": 461.6},
+  "gpu-014": {"gemm_bf16_tflops": 718.4, "hbm_copy_gbps": 2859, "nvlink_allreduce_busbw_gbps": 460.9},
+  "gpu-015": {"gemm_bf16_tflops": 721.1, "hbm_copy_gbps": 2862, "nvlink_allreduce_busbw_gbps": 462.0},
+  "gpu-016": {"gemm_bf16_tflops": 719.9, "hbm_copy_gbps": 2860, "nvlink_allreduce_busbw_gbps": 461.4}
+}
