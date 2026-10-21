@@ -2,7 +2,7 @@
 
 ## Reporting a vulnerability
 
-Please do not open public issues for security problems. Email **security@your-domain.example** (replace with the maintainers' address before publishing) with a description, affected versions and, if possible, a proof of concept. You will get an acknowledgement within three working days.
+Please do not open public issues for security problems. Email **ymohit799057@gmail.com** with a description, affected versions and, if possible, a proof of concept. You will get an acknowledgement within three working days.
 
 ## In scope
 
