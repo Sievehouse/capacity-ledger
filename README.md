@@ -1,5 +1,7 @@
 # Capacity Ledger
 
+[![ci](https://github.com/Sievehouse/capacity-ledger/actions/workflows/ci.yml/badge.svg)](https://github.com/Sievehouse/capacity-ledger/actions/workflows/ci.yml)
+
 **Contract-grade acceptance tests and SLA evidence for rented GPU clusters.**
 
 Capacity Ledger gives a GPU provider, its customer and their financiers one neutral, replayable record of the capacity that was actually delivered: a signed acceptance report when a cluster is handed over, then a monthly SLA statement that either party can recompute from the same signed events and get the same hash.
